@@ -1,0 +1,94 @@
+import pygame, sys
+from pygame.locals import *
+
+# Constants
+AMPLE = 600
+ALT = 600
+TAMANY = (AMPLE, ALT)
+BLANC = (255, 255, 255)
+GROC = (255, 255, 0)
+NEGRE = (0, 0, 0)
+BLAU = (0, 102, 204)
+BLAVA = (0, 162, 232)
+ROIG = (255, 0, 0)
+GROC_CAMPANA = (255, 255, 0)
+
+pygame.init()
+pantalla = pygame.display.set_mode(TAMANY)
+pygame.display.set_caption('Doraemon Graciosa')
+
+while True:  # main game loop
+    for event in pygame.event.get():
+        if event.type == QUIT:
+            pygame.quit()
+            sys.exit()
+
+    pantalla.fill(BLANC)
+
+    # Cos
+    pygame.draw.ellipse(pantalla, BLAVA, (200, 250, 200, 300))  # Cos
+    pygame.draw.ellipse(pantalla, NEGRE, (200, 250, 200, 300), 3)  # Contorn del cos
+
+    # Braços (units al cos)
+    pygame.draw.rect(pantalla, BLAVA, (150, 250, 50, 150))  # Braç esquerre
+    pygame.draw.rect(pantalla, NEGRE, (150, 250, 50, 150), 3)  # Contorn braç esquerre
+    pygame.draw.rect(pantalla, BLAVA, (400, 250, 50, 150))  # Braç dret
+    pygame.draw.rect(pantalla, NEGRE, (400, 250, 50, 150), 3)  # Contorn braç dret
+
+    # Mans (units al cos)
+    pygame.draw.ellipse(pantalla, NEGRE, (130, 400, 70, 30))  # Mà esquerra
+    pygame.draw.ellipse(pantalla, NEGRE, (380, 400, 70, 30))  # Mà dreta
+
+    # Cara
+    pygame.draw.circle(pantalla, BLAVA, (300, 200), 100)  # Cara
+    pygame.draw.circle(pantalla, NEGRE, (300, 200), 100, 3)  # Contorn de la cara
+
+    # Ulls
+    pygame.draw.circle(pantalla, BLANC, (230, 170), 30)  # Ocell esquerre
+    pygame.draw.circle(pantalla, NEGRE, (230, 170), 30, 3)  # Contorn ull esquerre
+    pygame.draw.circle(pantalla, BLANC, (370, 170), 30)  # Ocell dret
+    pygame.draw.circle(pantalla, NEGRE, (370, 170), 30, 3)  # Contorn ull dret
+    pygame.draw.circle(pantalla, NEGRE, (230, 170), 15)  # Pupila esquerra
+    pygame.draw.circle(pantalla, NEGRE, (370, 170), 15)  # Pupila dreta
+
+    # Nas
+    pygame.draw.circle(pantalla, NEGRE, (300, 220), 10)  # Nas
+
+    # Somriure (expressió graciosa)
+    pygame.draw.arc(pantalla, NEGRE, (230, 220, 140, 100), 0, 3.14, 5)  # Somriure
+    pygame.draw.circle(pantalla, NEGRE, (250, 300), 5)  # Galta esquerra
+    pygame.draw.circle(pantalla, NEGRE, (350, 300), 5)  # Galta dreta
+
+    # Collaret
+    pygame.draw.rect(pantalla, ROIG, (250, 270, 100, 20))  # Collaret
+    pygame.draw.rect(pantalla, NEGRE, (250, 270, 100, 20), 3)  # Contorn collaret
+
+    # Campana
+    pygame.draw.circle(pantalla, GROC_CAMPANA, (300, 290), 10)  # Campana
+    pygame.draw.circle(pantalla, NEGRE, (300, 290), 10, 3)  # Contorn de la campana
+
+    # Cames (units al cos)
+    pygame.draw.rect(pantalla, BLAVA, (230, 550, 30, 50))  # Cama esquerra
+    pygame.draw.rect(pantalla, NEGRE, (230, 550, 30, 50), 3)  # Contorn cama esquerra
+    pygame.draw.rect(pantalla, BLAVA, (340, 550, 30, 50))  # Cama dreta
+    pygame.draw.rect(pantalla, NEGRE, (340, 550, 30, 50), 3)  # Contorn cama dreta
+
+    # Peus (units al cos)
+    pygame.draw.ellipse(pantalla, NEGRE, (220, 590, 50, 20))  # Peu esquerre
+    pygame.draw.ellipse(pantalla, NEGRE, (330, 590, 50, 20))  # Peu dret
+
+    # Detalls addicionals per fer-lo més divertit
+    pygame.draw.circle(pantalla, NEGRE, (250, 300), 5)  # Galta esquerra
+    pygame.draw.circle(pantalla, NEGRE, (350, 300), 5)  # Galta dreta
+
+    # Afegir un barret divertit
+    pygame.draw.polygon(pantalla, ROIG, [(250, 150), (350, 150), (300, 100)])  # Barret
+    pygame.draw.polygon(pantalla, NEGRE, [(250, 150), (350, 150), (300, 100)], 3)  # Contorn del barret
+
+    # Unir braços i cames amb línies
+    pygame.draw.line(pantalla, NEGRE, (150, 250), (200, 250), 5)  # Unir braç esquerre al cos
+    pygame.draw.line(pantalla, NEGRE, (400, 250), (450, 250), 5)  # Unir braç dret al cos
+    pygame.draw.line(pantalla, NEGRE, (230, 550), (200, 550), 5)  # Unir cama esquerra al cos
+    pygame.draw.line(pantalla, NEGRE, (340, 550), (400, 550), 5)  # Unir cama dreta al cos
+
+    pygame.display.update()
