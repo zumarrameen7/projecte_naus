@@ -1,0 +1,104 @@
+import pygame, sys
+from pygame.locals import *
+
+# Definim algunes mides i colors
+AMPLE = 600
+ALT = 600
+TAMANY = (AMPLE, ALT)
+NEGRE = (0, 0, 0)
+BLAU = (0, 162, 232)
+BLANC = (255, 255, 255)
+VERMELL = (255, 0, 0)
+GROC = (255, 255, 0)
+
+# Inicialitzem Pygame
+pygame.init()
+pantalla = pygame.display.set_mode(TAMANY)
+pygame.display.set_caption('Figura Inspirada en Doraemon')
+
+while True:  # Bucle principal del joc
+    for event in pygame.event.get():
+        if event.type == QUIT:
+            pygame.quit()
+            sys.exit()
+
+    pantalla.fill(BLANC)
+
+    # Cara Negra
+    pygame.draw.circle(pantalla, NEGRE, (300,150), 105)
+
+    # Cara blava
+    pygame.draw.circle(pantalla, BLAU, (300,150), 100)
+
+    # Cara blanca dins de la blava
+    pygame.draw.circle(pantalla, BLANC,(300, 150), 85)
+
+    # Ull Esquerra
+    pygame.draw.circle(pantalla, NEGRE, (270,55), 30)
+    pygame.draw.circle(pantalla, BLANC, (270,55), 26)
+    pygame.draw.circle(pantalla, NEGRE, (270,55), 10)
+
+    # Ull dreta
+    pygame.draw.circle(pantalla, NEGRE, (320,55), 30)
+    pygame.draw.circle(pantalla, BLANC, (320,55), 26)
+    pygame.draw.circle(pantalla, NEGRE, (320,55), 10)
+
+    # Nas Vermell
+    pygame.draw.circle(pantalla, NEGRE, (295,105), 30)
+    pygame.draw.circle(pantalla, VERMELL, (295,105), 26)
+    pygame.draw.circle(pantalla, BLANC, (290,90), 8)
+
+    # bigoti esquerra
+    pygame.draw.line(pantalla, NEGRE, (220, 100), (270, 110), 3) # superior
+    pygame.draw.line(pantalla, NEGRE, (220, 150), (270, 135), 3) # centre
+    pygame.draw.line(pantalla, NEGRE, (220, 190), (270, 160), 3) # inferior
+
+    # bigoti dret
+    pygame.draw.line(pantalla, NEGRE, (320, 110), (380, 100), 3) # superior
+    pygame.draw.line(pantalla, NEGRE, (320, 135), (380, 150), 3) # centre
+    pygame.draw.line(pantalla, NEGRE, (320, 160), (380, 190), 3) # inferior
+
+    # Somriure
+    pygame.draw.arc(pantalla, NEGRE, (245, 130, 100, 70), 0, 3.14, 3)
+
+    # Linia
+    pygame.draw.line(pantalla, NEGRE, (295, 130), (295, 200), 3)
+
+    # Cos
+    pygame.draw.circle(pantalla, NEGRE, (300,400), 150)
+    pygame.draw.circle(pantalla, BLAU, (300,400), 145)
+    pygame.draw.circle(pantalla, BLANC, (300,364), 110)
+
+    # Campana i collar
+    rectangle1 = pygame.Rect(195, 230, 200, 50)
+    pygame.draw.rect(pantalla, VERMELL, rectangle1)
+    pygame.draw.rect(pantalla, NEGRE, rectangle1, 3)
+
+    pygame.draw.circle(pantalla, NEGRE, (295, 290), 30)
+    pygame.draw.circle(pantalla, GROC, (295, 290), 25)
+
+    pygame.draw.circle(pantalla, NEGRE, (295, 290), 15, 2)
+    pygame.draw.line(pantalla, NEGRE, (285, 300), (305, 300), 3)
+
+    # Braç esquerra
+    pygame.draw.ellipse(pantalla, BLAU, (160, 280, 60, 120))
+    pygame.draw.ellipse(pantalla, NEGRE, (160, 280, 60, 120), 3)  # contorn negre
+
+    # Braç dret
+    pygame.draw.ellipse(pantalla, BLAU, (380, 280, 60, 120))
+    pygame.draw.ellipse(pantalla, NEGRE, (380, 280, 60, 120), 3)  # contorn negre
+
+    # Cames
+    # peu esquerre
+    pygame.draw.circle(pantalla, BLAU, (250, 515), 42)
+    pygame.draw.circle(pantalla, NEGRE, (250, 515), 42, 3)  # contorn negre
+
+    # peu dreta
+    pygame.draw.circle(pantalla, BLAU, (340, 515), 42)
+    pygame.draw.circle(pantalla, NEGRE, (340, 515), 42, 3) # contorn negre
+
+    # Cua
+    pygame.draw.circle(pantalla, VERMELL, (420, 510), 20)
+    pygame.draw.circle(pantalla, NEGRE, (420,510), 20, 3) # contorn negre
+
+    pygame.display.update()
